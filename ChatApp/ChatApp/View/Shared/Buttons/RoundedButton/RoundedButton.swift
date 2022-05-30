@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct RoundedButtom<ButtonHandler: HandleButtonInteraction>: View {
+struct RoundedButton<ButtonHandler: HandleButtonInteraction>: View {
     var buttonHandler: ButtonHandler
     var type: RoundedButtonType
     
     var body: some View {
         Button {
-            buttonHandler.handleAction(type: type)
+            buttonHandler.handleAction()
         } label: {
             RoundedButtonLabel(type: type)
         }
@@ -40,8 +40,8 @@ struct RoundedButtonLabel: View {
 }
 
 struct CustomButtom_Previews: PreviewProvider {
-    static var buttonHandler = LoginViewModel()
+    static var buttonHandler = RoundedButtonHandler(actionHandler: LoginViewModel())
     static var previews: some View {
-        RoundedButtom(buttonHandler: buttonHandler, type: .signIn)
+        RoundedButton(buttonHandler: buttonHandler, type: .signIn)
     }
 }

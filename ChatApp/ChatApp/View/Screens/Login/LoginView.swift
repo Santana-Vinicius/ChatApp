@@ -29,7 +29,8 @@ struct LoginView: View {
             CustomTextField(text: $loginViewModel.password, type: .password)
                 .padding(.bottom, 85)
             
-            RoundedButtom(buttonHandler: loginViewModel, type: .signIn)
+            RoundedButton(buttonHandler: RoundedButtonHandler(actionHandler: loginViewModel),
+                          type: .signIn)
             Spacer()
             
             LinkButton(type: .newHere)

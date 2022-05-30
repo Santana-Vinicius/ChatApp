@@ -29,40 +29,8 @@ public class LoginViewModel: ObservableObject {
     }
 }
 
-extension LoginViewModel: HandleButtonInteraction {
-
-    /// This function will Handle the Interaction with the Button
-    /// - Parameter type: The kind of button that was tapped.
-    func handleAction(type: ButtonTypeProtocol) {
-        switch type.identifier {
-        case .rounded:
-            handleRoundedButtonAction(type: type as! RoundedButtonType)
-        case .link:
-            handleLinkButtonAction(type: type as! LinkButtonType)
-        }
-        
-        self.validateLoginUser()
-    }
-    
-    /// Function used to handle the interaction with
-    /// a RoundedButton
-    func handleRoundedButtonAction(type: RoundedButtonType) {
-        switch type {
-        case .signIn:
-            validateLoginUser()
-        case .signUp:
-            print("CADASTRAR USUÁRIO!")
-        }
-    }
-    
-    /// Function used to handle the interaction with a LinkButton
-    /// - Parameter type: The LinkButton
-    func handleLinkButtonAction(type: LinkButtonType) {
-        switch type {
-        case .newHere:
-            print("NEW HERE")
-        case .alreadyHaveAnAccount:
-            print("ALREADY HAVE AN ACCOUNT")
-        }
+extension LoginViewModel: HandleRoundedButtonInteraction {
+    func action() {
+        validateLoginUser()
     }
 }

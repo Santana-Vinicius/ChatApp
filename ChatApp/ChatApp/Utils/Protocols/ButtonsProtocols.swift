@@ -9,7 +9,9 @@ import Foundation
 
 /// Protocol used to handle button interactions
 protocol HandleButtonInteraction {
-    func handleAction(type: ButtonTypeProtocol)
+    /// Declare here what the button should
+    ///  do when tapped
+    func handleAction()
 }
 
 /// Every new child of ButtonType must to conform to this Protocol
